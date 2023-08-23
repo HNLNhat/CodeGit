@@ -1,0 +1,499 @@
+{
+	"info": {
+		"_postman_id": "00931b2f-5586-45d7-9967-93d4de947c61",
+		"name": "MOB306",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10702172"
+	},
+	"item": [
+		{
+			"name": "API",
+			"item": [
+				{
+					"name": "Đăng ký tài khoản",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"binz@gmail.com\",\r\n    \"password\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/users/register",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng nhập",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\": \"binz@gmail.com\",\r\n    \"password\": \"1\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/auth/login",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đăng xuất",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/auth/logout",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Đổi mật khẩu",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/users/change-password",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cập nhật thông tin cá nhân",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ly tieu long\",\r\n    \"address\": \"Quận 3\",\r\n    \"phone\": \"029209293\",\r\n    \"avatar\": \"https://2.pik.vn/20228e132485-e812-4825-8ae5-34506c84acbe.jpg\",\r\n    \"dob\": \"2000-08-20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/users/update-profile",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"update-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload hình ảnh lên server",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/T460/Downloads/5c66e177b71876462f09.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/media/upload",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"media",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy thông tin chi tiết 1 bài viết",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/articles/6316bbd5562ab100165ade5b/detail",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"articles",
+								"6316bbd5562ab100165ade5b",
+								"detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy danh sách bài viết",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Q4NzA4NGE0YjdiMTAwMTZlYzM2NWEiLCJlbWFpbCI6ImJpbnpAZ21haWwuY29tIiwibmFtZSI6IiIsImFkZHJlc3MiOiIiLCJwaG9uZSI6IiIsImF2YXRhciI6IiIsImlhdCI6MTY3NTEyODk4NiwiZXhwIjoxNjc3NzIwOTg2fQ.ocSgcTkYb6xfUTNJnkRQvE_QCEyG-_km7i-lA-vkO5c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/articles",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy bài viết của tôi",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/articles/my-articles",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"articles",
+								"my-articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tìm kiếm bài viết theo tên",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/articles/search?title=vestibulum",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"articles",
+								"search"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "vestibulum"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Thêm mới bài viết",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Phasellus in felis. Donec semper sapien a libero. Nam dui.\",\r\n  \"content\": \"Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.\",\r\n  \"image\": \"https://cdn.tuoitre.vn/2022/8/21/z36603545985729afe273eca0b86d68c30c8be6d894cd1-16610703194001184506404.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/articles",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"articles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cập nhật bài viết",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Phasellus in felis. Donec semper sapien a libero. Nam dui. Cập nhật bài viết\",\r\n  \"content\": \"Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.\",\r\n  \"image\": \"https://cdn.tuoitre.vn/2022/8/21/z36603545985729afe273eca0b86d68c30c8be6d894cd1-16610703194001184506404.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/articles/6316bbd5562ab100165ade5b/update",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"articles",
+								"6316bbd5562ab100165ade5b",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Xóa bài viết",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://fpoly-hcm.herokuapp.com/api/articles/6316bbd5562ab100165ade5b/delete",
+							"protocol": "https",
+							"host": [
+								"fpoly-hcm",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"articles",
+								"6316bbd5562ab100165ade5b",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzE2YWM3ZDU4NDU5NDAwMTZkZjhmMTAiLCJlbWFpbCI6InRlc3RlcjFAZ21haWwuY29tIiwibmFtZSI6Imx5IHRpZXUgbG9uZyIsImFkZHJlc3MiOiJRdeG6rW4gMyIsInBob25lIjoiMDI5MjA5MjkzIiwiYXZhdGFyIjoiaHR0cHM6Ly8yLnBpay52bi8yMDIyOGUxMzI0ODUtZTgxMi00ODI1LThhZTUtMzQ1MDZjODRhY2JlLmpwZyIsImlhdCI6MTY2NDAyNDI0MywiZXhwIjoxNjY2NjE2MjQzfQ.37vdmyaW0ltNXARAHOZS298NgWgA-dERt12XsgY4Zsg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzE2YWM3ZDU4NDU5NDAwMTZkZjhmMTAiLCJlbWFpbCI6InRlc3RlcjFAZ21haWwuY29tIiwibmFtZSI6Im1pbmggdGlldSBsb25nIiwiYWRkcmVzcyI6InF1YW4xMyIsInBob25lIjoiMDEyMTIzMTIzIiwiYXZhdGFyIjoiaHR0cHM6Ly8yLnBpay52bi8yMDIyOGUxMzI0ODUtZTgxMi00ODI1LThhZTUtMzQ1MDZjODRhY2JlLmpwZyIsImlhdCI6MTY2NTIzNDcxMiwiZXhwIjoxNjY3ODI2NzEyfQ.gCZplHBnznIr76bF1zLUXEfO9Z_Y2WfF7mpA6HpGWus",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
