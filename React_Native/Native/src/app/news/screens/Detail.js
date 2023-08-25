@@ -7,13 +7,12 @@ const Detail = (props) => {
   const { id } = props?.route?.params;
   const { getDetail } = useContext(NewsContext);
   const [data, setData] = useState(null); //Chi tiết tin tức
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () =>{
       const result = await getDetail(id);
       setData(result);
-      setIsLoading(false);
     };
     if(id){
       fetchData();
@@ -40,9 +39,47 @@ const Detail = (props) => {
       />
 
       <Text style={styles.europe}>Europe</Text>
-      <Text style={styles.title}>{data.name}</Text>
-      <Text style={styles.content}>{data.price}</Text>
+      <Text style={styles.title}>{data.title}</Text>
+      <Text style={styles.content}>{data.content}</Text>
 
+
+
+
+
+        {/* Ukraine's President Zelensky to BBC: Blood money being paid for Russian
+        oil
+  
+        Ukrainian President Volodymyr Zelensky has accused European countries
+        that continue to buy Russian oil of "earning their money in other
+        people's blood". In an interview with the BBC, President Zelensky
+        singled out Germany and Hungary, accusing them of blocking efforts to
+        embargo energy sales, from which Russia stands to make up to £250bn
+        ($326bn) this year. There has been a growing frustration among Ukraine's
+        leadership with Berlin, which has backed some sanctions against Russia
+        but so far resisted calls to back tougher action on oil sales. Lorem
+        ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
+        venenatis lectus, et dapibus eros. Praesent id magna quis purus pharetra
+        scelerisque ut quis felis. Duis dictum efficitur purus et blandit. Duis
+        vel consequat dui. Nullam euismod, nisl eu fermentum convallis, arcu
+        lectus sagittis ipsum, in elementum tortor purus vitae ligula. Mauris at
+        enim elementum, laoreet metus sit amet, cursus orci. Sed nec elit
+        libero. In accumsan mi non sollicitudin tincidunt. Proin molestie orci
+        id pulvinar placerat. Ukrainian President Volodymyr Zelensky has accused
+        European countries that continue to buy Russian oil of "earning their
+        money in other people's blood". In an interview with the BBC, President
+        Zelensky singled out Germany and Hungary, accusing them of blocking
+        efforts to embargo energy sales, from which Russia stands to make up to
+        £250bn ($326bn) this year. There has been a growing frustration among
+        Ukraine's leadership with Berlin, which has backed some sanctions
+        against Russia but so far resisted calls to back tougher action on oil
+        sales. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Phasellus nec venenatis lectus, et dapibus eros. Praesent id magna quis
+        purus pharetra scelerisque ut quis felis. Duis dictum efficitur purus et
+        blandit. Duis vel consequat dui. Nullam euismod, nisl eu fermentum
+        convallis, arcu lectus sagittis ipsum, in elementum tortor purus vitae
+        ligula. Mauris at enim elementum, laoreet metus sit amet, cursus orci.
+        Sed nec elit libero. In accumsan mi non sollicitudin tincidunt. Proin
+        molestie orci id pulvinar placerat. */}
      
      </ScrollView>
      : <><View><Text>Loading...</Text></View></>

@@ -13,10 +13,9 @@ import { UserContext } from "../utilities/UserContext";
 const Register = (props) => {
   const { navigation } = props;
   const { register } = useContext(UserContext);
-  const [email, setEmail] = useState("nhat@gmail.com");
-  const [password, setPassword] = useState("nhatnam");
-  const [confirmPassword, setConfirmPassword] = useState("nhatnam");
-const [name, setname] = useState("nhat");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleRegister = async () => {
     if (!email || !password || !confirmPassword) {
@@ -27,12 +26,12 @@ const [name, setname] = useState("nhat");
       Alert.alert("Mật khẩu không khớp");
       return;
     }
-    const result = await register(email, password, name);
+    const result = await register(email, password);
     if(result){
-      navigation.navigate("Login");
-     }else{
-       Alert.alert('Đăng kí thành công');
-     }
+      navigation.navigate('Login');
+    }else{
+      Alert.alert('Đăng kí không thành công');
+    }
   }
 
   return (

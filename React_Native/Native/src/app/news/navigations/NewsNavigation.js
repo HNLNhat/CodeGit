@@ -16,4 +16,4 @@ const NewsNavigation = () => {
   )
 }
 
-export default NewsNavigation;
+export default NewsNavigation 

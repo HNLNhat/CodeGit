@@ -14,8 +14,8 @@ import { UserContext } from "../utilities/UserContext";
 const Login = (props) => {
   const { navigation } = props;
   const { login } = useContext(UserContext);
-  const [email, setEmail] = useState("nhat@gmail.com");
-  const [password, setPassword] = useState("1");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   // const handleLogin = async () => {  //   if (!email || !password) {
   //     Alert.alert("Please enter your email and password");

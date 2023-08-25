@@ -4,7 +4,8 @@ import {
   View,
   Image,
   FlatList,
-  Pressable,
+  ScrollView,
+  Pressable
 } from "react-native";
 import { NewsContext } from "../utilities/NewsContext";
 import React, { useContext, useEffect, useState } from "react";
@@ -23,39 +24,38 @@ const Home2 = (props) => {
     setData(result);
     setRefreshing(false);
   }
+  useEffect(() => {
+    //Chạy khi component được render
+    //Chạy 1 lần duy nhất
+    const fetchData = async () => {
+      const result = await getNews();
+      setData(result);
+    };
+    fetchData();
+    return () => {}
+
+    }, [])
+
   // useEffect(() => {
-  //   //Chạy khi component được render
-  //   //Chạy 1 lần duy nhất
-  //   const fetchData = async () => {
-  //     const result = await getNews();
-  //     setData(result);
+  //   //Tự động chạy sau khi component được render
+  //   //Chạy lần đầu tiên và mỗi khi có sự thay đổi state
+  //   const get = async () => {
+  //     const response = await getNews();
+  //     setData(response);
   //   };
-  //   fetchData();
-  //   return () => {}
-
-  //   }, [])
-
+  //   get();
+  //   return () => {};
+  // }, []);
   useEffect(() => {
     //Tự động chạy sau khi component được render
     //Chạy lần đầu tiên và mỗi khi có sự thay đổi state
-    const get = async () => {
-      const response = await getNews();
-      setData(response);
-    };
-    get();
-    return () => {};
-  }, []);
-    //useEffect(() => {
-    //Tự động chạy sau khi component được render
-    //Chạy lần đầu tiên và mỗi khi có sự thay đổi state
     //state được khai báo trong mảng
-    //}, [data]);
+  }, [data]);
 
   //Adapter
-  const renderItem = ({item}) => {
-    // const { item } = props;
-    // const { title, image, createdAt, _id} = item;
-const {name, image, price, createdAt, _id} = item;
+  const renderItem = (props) => {
+    const { item } = props;
+    const { title, image, createdAt, _id} = item;
 
     const displayDate = (value) => {
       const date = new Date(value);
@@ -66,13 +66,13 @@ const {name, image, price, createdAt, _id} = item;
     };
     return (
       <Pressable
-      onPress={() => navigation.navigate("Detail", {id: _id})}
+      onPress={() => navigation.navigate('Detail', {id: _id})}
       style={homeStyle.card}>
         <Image source={{ uri: image }} style={homeStyle.image} />
         <View style={homeStyle.information}>
-          <Text style={homeStyle.category}>{name}</Text>
-          {/* <Text style={homeStyle.category}>{displayDate(createdAt)}</Text> */}
-          <Text style={homeStyle.title}>{price}</Text>
+          <Text style={homeStyle.category}>Europe</Text>
+          <Text style={homeStyle.category}>{displayDate(createdAt)}</Text>
+          <Text style={homeStyle.title}>{title}</Text>
         </View>
       </Pressable>
     )
@@ -84,8 +84,7 @@ const {name, image, price, createdAt, _id} = item;
       <FlatList
         data={data}
         renderItem={renderItem}
-        // keyExtractor={(item) => item._id}
-        keyExtractor={Math.random}
+        keyExtractor={(item) => item._id}
         showsVerticalScrollIndicator={false}
         horizontal={false}
         refreshing={refreshing}

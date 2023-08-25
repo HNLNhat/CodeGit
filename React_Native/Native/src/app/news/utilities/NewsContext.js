@@ -1,4 +1,4 @@
-import React, { createContext } from 'react'
+import React, { createContext, useState } from 'react'
 import AxiosInstance from '../../axiosClient/AxiosInstance';
 
 
@@ -10,7 +10,7 @@ export const NewsProvider = (props) => {
     // lấy danh sách bài viết
     const getNews = async () => {
         try {
-            const response = await AxiosInstance().get('/product/get-all');
+            const response = await AxiosInstance().get('/articles');
             //console.log(response.data);
             return response.data;
         } catch (error) {
@@ -22,7 +22,7 @@ export const NewsProvider = (props) => {
     // lấy thông tin chi tiết 1 bài viết
     const getDetail = async (id) => {
         try {
-            const response = await AxiosInstance().get(`/product/article/${id}/detail`);
+            const response = await AxiosInstance().get(`/articles/${id}/detail`);
             return response.data[0];
         
         } catch (error) {
@@ -35,7 +35,7 @@ export const NewsProvider = (props) => {
     const uploadImage = async(formData) =>{
         try {
             const response = await AxiosInstance('multipart/form-data')
-                            .post(`product/upload-image`, formData);
+                            .post(`media/upload`, formData);
             return response.data;
         } catch (error) {
             console.log("Up load error:", error);
@@ -45,17 +45,14 @@ export const NewsProvider = (props) => {
     }
 
     // lưu bài viết
-    const saveNews = async (name, price, image)=>{
+    const saveNews = async (title, content, image)=>{
         try {
             const body = {
-               name,
-               price,
-               quantity: "",
-               image,
-               category: "",
-            };
-            console.log(body);
-            await AxiosInstance().post('/product/new', body);
+                title,
+                content,
+                image,
+            }
+            await AxiosInstance().post('/articles', body);
             return true;
         } catch (error) {
             console.log('save news error: ', error);

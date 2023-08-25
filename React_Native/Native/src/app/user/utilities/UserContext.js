@@ -1,57 +1,43 @@
 import React, { useState, createContext } from "react";
 import AxiosInstance from "../../axiosClient/AxiosInstance";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export const UserContext = createContext();
 
 export const UserProvider = (props) => {
   const { children } = props;
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLogged] = useState(false);
   const login = async (email, password) => {
     try {
-      const body = {
-        email: email,
-        password: password,
+        const response = await AxiosInstance().post('/auth/login', {
+          email: email,
+          password: password,
+        });
+       const token = response.data.token;
+        await AsyncStorage.setItem('token', token);//Lưu lại token
+        setIsLogged(true); //Chuyển trạng thái login
+        return true;
+      }catch(error){
+        console.log('login error:', error);
       }
-      //http://localhost:3000/api/user/login
-      const response = await AxiosInstance().post("/user/login", body);
-      //Đọc token
-      const {token} = response.data;
-      //Lưu token vào bộ nhó
-      await AsyncStorage.setItem("token", token); //Lưu lại token
-      //Cập nhật state
-      setIsLoggedIn(true); //Chuyển trạng thái login
-      return true;
-    } catch (error) {
-      console.log("login error:", error);
+      return false;
     }
-    return false;
-  };
 
-  const register = async (email, password, name) => {
+  const register = async (email, password) => {
     try {
-      await AxiosInstance().post("/user/register", {
+      await AxiosInstance().post('/users/register', {
         email: email,
         password: password,
-        name: name,
       });
-      if(result){
-        await AxiosInstance().post('/user/sendemail', {
-          to: email,
-          subject: "Đăng ký thành công",
-          name: name,
-        })
-      }
       return true;
     } catch (error) {
-      console.log("register error:", error);
+      console.log('register error:', error);
     }
     return false;
   };
   return (
-    <UserContext.Provider
-      value={{ isLoggedIn, setIsLoggedIn, login, register }}
-    >
+    <UserContext.Provider value={{ isLoggedIn, setIsLogged, login, register }}>
       {children}
     </UserContext.Provider>
   );
