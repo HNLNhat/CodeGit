@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huỳnh Ngọc Long Nhật</title>
+    <link href="bai1.css" rel="stylesheet">   
+    <script>
+    var ptb2 = new Object();
+    ptb2.a=null;
+    ptb2.b=null;
+    ptb2.c=null;
+    ptb2.nhap=function(){
+    while(true){
+    this.a = window.prompt("Nhập số a: ");
+    this.b = window.prompt("Nhập số b: ");
+    this.c = window.prompt("Nhập số c: ");
+    if(isNaN(this.a)==true){
+    alert("Nhap lai !");
+    }else{
+    break;
+    }
+    }
+    str = this.a + "x<sup>2</sup> + " + this.b +"x + " + this.c +" = 0";
+    document.getElementById("pt").innerHTML = str;
+    }
+
+    ptb2.giai = function(){
+    var delta = Math.pow(this.b, 2) - 4*this.a*this.c;
+    if(delta<0){
+    str = ("<p>Phương trình vô nghiệm</p>");
+    document.getElementById("kq").innerHTML = str;
+    }
+    else if(delta ==0){
+    var x0 = -this.b/(2*this.a);
+    str = ("<p>Phương trình có nghiệm kép x0=" + x0 + "</p>");
+    document.getElementById("kq").innerHTML = str;
+    }
+    else{
+    x1 = (-this.b + Math.sqrt(delta))/(2*this.a);
+    x2 = (-this.b - Math.sqrt(delta))/(2*this.a);
+    str1 = ("<p>x1= " + x1 + "</br>"+"x2= " + x2 + "</p>");
+    document.getElementById("kq").innerHTML = str1;
+    }
+}
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>GIẢI PHƯƠNG TRÌNH BẬC 2</h2>
+        <div id="pt">Phương Trình</div>
+        <div id="kq">Kết Quả</div>
+        <div class="nut">
+            <button onclick="ptb2.nhap()">Nhập A B C</button>
+            <button onclick="ptb2.giai()">Giải PT</button>
+        </div>
+    </div>
+</body>
+</html>

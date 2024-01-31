@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huỳnh Ngọc Long Nhật</title>
+    <script>
+        var so1 = prompt("Nhập số 1 :");
+        var so2 = prompt("Nhập số 2 :");
+        var pheptinh = prompt("Nhập phép tính :");
+    </script>
+    <style>
+.container{
+    color:aqua;
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(0, 255, 157);
+    border-radius: 20px;
+    text-align: center;
+    width: 600px;
+    height:100px;
+    background-color: darksalmon;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+    <script>
+       
+ switch(pheptinh){
+    case '+':
+    var kq = so1 + so2;
+    document.write("<p>Kết quả so1 + so2 là :" + kq +"</p>");
+    break;
+    case '-':
+    var kq = so1 - so2;
+    document.write("<p>Kết quả so1 - so2 là :" + kq +"</p>");
+    break;
+    case '*':
+    var kq = so1 * so2;
+    document.write("<p>Kết quả so1 x so2 là :" + kq +"</p>");
+    break;
+    case '/':
+    var kq = so1 / so2;
+    document.write("<p>Kết quả so1 / so2 là :" + kq +"</p>");
+    break;
+    default:
+    document.write(pheptinh+"Không phải là phép tính hợp lệ");
+}
+
+    </script>
+    </div>
+</body>
+</html>
+
+

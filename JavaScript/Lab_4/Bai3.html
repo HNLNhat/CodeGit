@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huỳnh Ngọc Long Nhật</title>
+    <style>
+        .container{
+            width: 1140px;
+            margin: auto;
+            border: 1px solid rgb(71, 54, 168);
+            color:rgb(0, 255, 242)
+        }
+        header{
+            background:rgb(37, 82, 74) ;
+            height: 120px;
+            position: relative;
+        }
+        main{
+            background: green ;
+            min-height: 700px;
+            text-align: center;
+        }
+        main h1{
+            color: red;
+            text-align: center;
+            border-radius: 10px;
+            width:100px;
+            height: 30px;
+        }
+        footer{
+            background: rgb(144, 73, 73);
+            height:100px;
+        }
+    </style>
+  </head>
+  <body>
+      <div class="container">
+          <header>
+            <span id="dongho" onclick="startstopDH()"><button>Đồng hồ</button></span>
+       
+          </header>
+          <main>
+              <span id="dongho" onclick="startstopDH()"><button><h1>Tải lại</h1></button></span>
+          </main>
+          <footer></footer>
+      </div>
+      
+      <script>
+          var dh=null;
+          function tg(){
+              var now = new Date();
+              var h = now.getHours();
+              var m =  now.getMinutes();
+              var s = now.getSeconds();
+              document.getElementById("dongho").innerHTML = h + ":" + m + ":" + s;
+          }
+  
+          function startstopDH(){
+              if(dh==null){
+                  dh = setInterval("tg()",1000);
+              }else{
+                  clearInterval(dh);
+                  dh=null;
+              }
+          }
+      </script>
+      <script>
+          dh = setInterval("tg()",1000);
+          setTimeout( function(){
+              dh = alert ("Tôi là Huỳnh Ngọc Long Nhật. Chào bạn! Chúc an lành");
+          },10000);
+      </script>
+  </body>
+  </html>

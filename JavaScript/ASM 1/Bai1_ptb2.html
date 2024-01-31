@@ -1,0 +1,155 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giải phương trình bậc 2</title>
+    <link href="Bai1.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <div id="chao">
+        <center>
+          <script>
+            var n = new Date();
+            var gio = n.getHours();
+            if (gio < 12) document.write("Chào buổi sáng");
+            else document.write("Chào buổi chiều");
+          </script>
+        </center>
+      </div>
+      <div id="xinchao"></div>
+    </header>
+
+    <div class="container-pt">
+      <h2>GIẢI PHƯƠNG TRÌNH <br />ax<sup>2</sup>+bx + c = 0</h2>
+      <span>Số lần giải phương trình: <b id="solangiai"></b></span>
+      <hr />
+      <form>
+        <p><label>Nhập số a:</label> <input type="text" id="a" /></p>
+        <p><label>Nhập số b:</label> <input type="text" id="b" /></p>
+        <p><label>Nhập số c:</label> <input type="text" id="c" /></p>
+        <button
+          type="button"
+          class="nut_khoa"
+          disabled
+          id="btngiai"
+          onclick="ptb2.giai(); dem();"
+        >
+          GIẢI PT
+        </button>
+        <button type="button" class="nut" id="btnchoso" onclick="choso()">
+          CHO SỐ
+        </button>
+      </form>
+      <div id="kq"></div>
+      <p id="dongho"></p>
+    </div>
+    <footer>
+      <center>
+        <br />
+        Họ tên: Huỳnh Ngọc Long Nhật
+      </center>
+    </footer>
+  </body>
+</html>
+<script>
+  function choso() {
+    var a = Math.round(Math.random() * 10);
+    var b = Math.round(Math.random() * 10);
+    var c = Math.round(Math.random() * 10);
+    document.getElementById("a").value = a;
+    document.getElementById("b").value = b;
+    document.getElementById("c").value = c;
+    var btn = document.getElementById("btngiai");
+    btn.disabled = false;
+    btn.className = "nut";
+  }
+</script>
+<script>
+  var ptb2 = {
+    giai: function () {
+      var a = document.getElementById("a").value;
+      var b = document.getElementById("b").value;
+      var c = document.getElementById("c").value;
+      if (a == 0) {
+        if (b == 0) {
+          if (c == 0) {
+            document.getElementById("kq").innerHTML =
+              "<p>Phương trình vô số nghiệm</p>";
+          } else {
+            document.getElementById("kq").innerHTML =
+              "<p>Phương trình vô nghiệm</p>";
+          }
+        } else {
+          var x = -c / b;
+          str = `<p>Phương trình có nghiệm: x= ${x.toFixed(2)}</p>`;
+          document.getElementById("kq").innerHTML = str;
+        }
+      } else {
+        var delta = b * b - 4 * a * c;
+        if (delta < 0) {
+          document.getElementById("kq").innerHTML =
+            "<p>Phương trình vô nghiệm</p>";
+        } else if (delta == 0) {
+          var x = -b / (2 * a);
+          x = x.toFixed(2);
+          str = `<p> Phương trình có nghiệm kép: x= ${x.toFixed(2)}</p>`;
+          document.getElementById("kq").innerHTML = str;
+        } else {
+          var x1 = (-b - Math.sqrt(delta)) / (2 * a);
+          var x2 = (-b + Math.sqrt(delta)) / (2 * a);
+          var str = `<p>Phương trình có 2 nghiệm phân biệt</p>
+                            <p>X<sub>1</sub> = ${x1.toFixed(2)} </p>
+                            <p>X<sub>2</sub> = ${x2.toFixed(2)} </p>`;
+          document.getElementById("kq").innerHTML = str;
+        }
+      }
+    },
+  };
+</script>
+<script>
+  function myFunction() {
+    document.getElementById("mySelect").disabled = true;
+  }
+</script>
+
+<script>
+  var solangiai = 0;
+  function dem() {
+    solangiai++;
+    document.getElementById("solangiai").innerHTML = solangiai;
+  }
+</script>
+<script>
+  var dh = null;
+  function tg() {
+    var today = new Date();
+    var date =
+      today.getDate() +
+      "/" +
+      (today.getMonth() + 1) +
+      "/" +
+      today.getFullYear();
+    var time =
+      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = "<p>Bây giờ là: " + date + " --" + time + "</p>";
+    document.getElementById("dongho").innerHTML = dateTime;
+  }
+</script>
+<script>
+  dh = setInterval("tg()", 1000);
+</script>
+<script>
+  function handleChange(input) {
+    if (input.value < -10) input.value = -10;
+    if (input.value > 10) input.value = 10;
+  }
+</script>
+<script>
+  const chao = setTimeout(loiChao, 5000);
+  function loiChao() {
+    document.getElementById("xinchao").innerHTML =
+      "Chào bạn! Chúc bạn một ngày tốt lành!";
+  }
+</script>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huỳnh Ngọc Long Nhật</title>
+    <link href="Bai4.css" rel="stylesheet"> 
+</head>
+<body>
+    <div class="container">
+        <div class="ngay">
+            <h2>Ngày</h2>
+            <script>
+                var ngay = 1;
+                document.write("<select>");
+                for(var i=1 ;i<32;i++){
+                    document.write("<option selected>" + i +"</option>")
+                }
+                document.write("</select>");
+            </script>
+        </div>
+        <div class="thang">
+            <h2>Tháng</h2>
+           <script>
+               var thang=1;
+               document.write("<select>");
+                while (thang < 13) {
+                        if (thang == 1) {
+                            document.write("<option selected>" + thang + "</option>")
+                        } else { document.write("<option>" + thang + "</option>") }
+                        thang++;
+                    }
+                    document.write("</select>"); 
+           </script>  
+        </div>
+        <div class="nam">
+            <h2>Năm</h2>
+            <script class="nam">
+                var nam =1970;
+                document.write("<select>");
+                do{
+                    if(nam == 2003){
+                        document.write("<option selected>" + nam +"</option>");
+                    }else {
+                        document.write("<option selected>" + nam +"</option>");
+                    }
+                    nam++;
+                }while (nam<2023){
+                    document.write("</select>");
+                }
+            </script>
+        </div>
+    </div> 
+</body>
+</html>

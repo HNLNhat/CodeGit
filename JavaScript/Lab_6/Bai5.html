@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huỳnh Ngọc Long Nhật</title>
+    <style>
+        body{
+            background-color: rgb(0, 255, 140);
+            text-align: center;
+        
+        }
+        button{
+            width: 80px;
+            height: 40px;
+        }
+       
+        p{
+           text-align: center;
+        }
+    </style>
+    <script>
+       
+        function choso(){
+            var a = Math.round(Math.random()*10);
+            var b = Math.round(Math.random()*10);
+            document.getElementById("a").value = a;
+            document.getElementById("b").value = b;
+        }
+
+        function dapan(){
+            var kq;
+            var x = document.getElementById("a").value;
+            var y = document.getElementById("b").value;
+            kq = document.getElementById("dapan").value;
+            var sum = parseInt(x) + parseInt(y);
+            if(kq ==  sum){
+                var x = "Đúng rồi"
+                document.getElementById("kq").innerHTML = x;
+            }else{
+                var y = "Sai rồi"
+                document.getElementById("kq").innerHTML = y;
+            }
+        }
+    </script>
+</head>
+<body onload="choso()">
+    <p>Số A <input type="text" id="a"></p>
+    <p>Số B <input type="text" id="b"></p>
+    <p>Đáp án<input type="text" id="dapan"></p>
+    <p id="kq"></p>
+    <button onclick="dapan()">Trả lời</button>
+</body>
+</html>

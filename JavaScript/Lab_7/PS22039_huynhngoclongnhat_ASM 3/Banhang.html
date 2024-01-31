@@ -1,0 +1,177 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Huỳnh Ngọc Long Nhật</title>
+    <link rel="stylesheet" href="Banhang.css"/>
+    <script src="Banhang.js"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <div id="logo">
+          <center>
+              <img src="img/fpt.png" width="300px">
+          </center>
+      </div>
+      <div id="banner">
+          <center>
+              <img src="img/1.jpg" width="700px" height="500px">
+          </center>
+      </div>
+      <div id="menu">
+        <ul>
+            <li><a href="Bai1_ptb2.html">Phương trình bậc 2</a></li>
+            <li><a href="Bosuutap.html">Bộ sưu tập</a></li>
+            <li><a href="Banhang.html">Bán hàng</a></li>
+            <li><a href="Dangki.html">Đăng kí</a></li>
+        </ul>
+      </div>
+      <marquee><h2>Giảm giá 50% từ 30/4 - 1/5</h2></marquee>
+    <div class="container">
+      <div class="mucgia">
+        <h1>BÁN HÀNG</h1>
+      <select id="mucgia" onchange="doimucgia()">
+        <option value="-1">Chọn mức giá</option>
+        <option value="200">0</option>
+        <option value="200">200</option>
+        <option value="400">400</option>
+        <option value="600">600</option>
+        <option value="800">800</option>
+      </select>
+    </div>
+      <table border="1" id="table_SP">
+        <tr>
+          <th colspan="2">Hàng Hóa</th>
+          <th>Đơn Giá</th>
+          <th>Số lượng</th>
+          <th>Thành Tiền</th>
+        </tr>
+        <tr>
+          <td>
+            <input onclick="tich1checkbox(0)" type="checkbox" name="chon" />
+          </td>
+          <td>iPhone 11</td>
+          <td name="gia">700</td>
+          <td>
+            <input
+              onkeyup="thanhtien(this)"
+              value="0"
+              name="soluong"
+              disabled
+            />
+          </td>
+          <td name="thanhtien"></td>
+        </tr>
+        <tr>
+          <td>
+            <input onclick="tich1checkbox(1)" type="checkbox" name="chon" />
+          </td>
+          <td>Samsung</td>
+          <td name="gia">400</td>
+          <td>
+            <input
+              onkeyup="thanhtien(this)"
+              value="0"
+              name="soluong"
+              disabled
+            />
+          </td>
+          <td name="thanhtien"></td>
+        </tr>
+        <tr>
+          <td>
+            <input onclick="tich1checkbox(2)" type="checkbox" name="chon" />
+          </td>
+          <td>Nokia</td>
+          <td name="gia">100</td>
+          <td>
+            <input
+              onkeyup="thanhtien(this)"
+              value="0"
+              name="soluong"
+              disabled
+            />
+          </td>
+          <td name="thanhtien"></td>
+        </tr>
+        <tr>
+          <td>
+            <input onclick="tich1checkbox(3)" type="checkbox" name="chon" />
+          </td>
+          <td>Sony Xperia</td>
+          <td name="gia">450</td>
+          <td>
+            <input
+              onkeyup="thanhtien(this)"
+              value="0"
+              name="soluong"
+              disabled
+            />
+          </td>
+          <td name="thanhtien"></td>
+        </tr>
+        <tr>
+          <td>
+            <input onclick="tich1checkbox(4)" type="checkbox" name="chon" />
+          </td>
+          <td>Motorola</td>
+          <td name="gia">180</td>
+          <td>
+            <input
+              onkeyup="thanhtien(this)"
+              value="0"
+              name="soluong"
+              disabled
+            />
+          </td>
+          <td name="thanhtien"></td>
+        </tr>
+        <tr>
+          <td>
+            <input onclick="tich1checkbox(5)" type="checkbox" name="chon" />
+          </td>
+          <td>Oppo</td>
+          <td name="gia">600</td>
+          <td>
+            <input
+              onkeyup="thanhtien(this)"
+              value="0"
+              name="soluong"
+              disabled
+            />
+          </td>
+          <td name="thanhtien"></td>
+        </tr>
+        <tr>
+          <td>
+            <input onclick="tich1checkbox(6)" type="checkbox" name="chon" />
+          </td>
+          <td>bPhone</td>
+          <td name="gia">90</td>
+          <td>
+            <input
+              onkeyup="thanhtien(this)"
+              value="0"
+              name="soluong"
+              disabled
+            />
+          </td>
+          <td name="thanhtien"></td>
+        </tr>
+        <tr class="tong">
+          <th colspan="4">TỔNG</th>
+          <td id="tinhtong"><b> </b></td>
+        </tr>
+      </table>
+
+      <footer>
+        <center>
+          <br />
+          Huỳnh Ngọc Long Nhật
+        </center>
+      </footer>
+
+  </body>
+</html>

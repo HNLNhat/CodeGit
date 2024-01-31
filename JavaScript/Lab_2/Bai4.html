@@ -1,0 +1,38 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var slx = sessionStorage.getItem("solanxem");
+        if (slx == null) {
+            slx = 1;
+        } else {
+            slx = Number(slx);
+            slx++;
+        }
+        sessionStorage.setItem("solanxem", slx);
+    </script>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td>
+                <h1>Số lần xem</h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <script>
+                    document.write(slx)
+                </script>
+            </td>
+        </tr>
+    </table>
+    Gõ f5 để xem lại trang
+</body>
+
+</html>

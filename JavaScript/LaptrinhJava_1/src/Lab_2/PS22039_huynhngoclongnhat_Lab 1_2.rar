@@ -1,0 +1,23 @@
+package ASM1;
+public class Classmain {
+  public static void main(String[] args){
+      do{
+    System.out.println("*==================*");
+    System.out.println("* 1.Danh sách      *");
+    System.out.println("* 2.Xuất danh sách *");
+    System.out.println("* 3.Cập nhật       *");
+    System.out.println("*==================*");
+      int n = nhapInt("Mời chọn:");
+      switch(n){
+          case 1:System.out.println("Gọi menu nhập");
+          break;
+          case 2:System.out.println("Gọi menu xuất");
+          break;
+          case 3:System.out.println("Gọi menu cập nhập");
+          break;
+      }  
+      String ch=nhapString("Nếu muốn thoát khỏi chương trình hãy gõ N/n:");
+      if(ch.equalsIgnoreCase("N"))break;
+      }while(true);          
+}
+}

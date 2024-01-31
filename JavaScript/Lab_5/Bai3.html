@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huỳnh Ngọc Long Nhật</title>
+</head>
+<style>
+body{
+    background-color: rgb(0, 255, 170);
+}
+.container{
+    font-size: 15em;
+    margin: auto;
+    margin-top: 50px;
+}
+.gt{
+    text-align: center;
+    margin-top: 5px;
+    color: rgb(204, 0, 255);
+}
+.container button{
+    width: 100px;
+    height: 100px;
+}
+.h1{
+    text-align: center;
+    color: red;
+}
+</style>
+<body>
+    <div class="h1">
+    <h1>TICTACTOE GAME</h1>
+</div>
+    <table class="container">
+        <tr>
+            <td><button onclick="mark(0)"></button></td>
+            <td><button onclick="mark(1)"></button ></td>
+            <td><button onclick="mark(2)"></button></td>
+        </tr>
+        <tr>
+            <td><button onclick="mark(3)" ></button></td>
+            <td><button onclick="mark(4)"></button></td>
+            <td><button onclick="mark(5)"></button></td>
+        </tr>
+        <tr>
+            <td><button onclick="mark(6)"></button></td>
+            <td><button onclick="mark(7)"></button></td>
+            <td><button onclick="mark(8)"></button></td>
+        </tr>
+    </table>
+    
+</body>
+</html>
+<script>
+    var flag = true ;
+    var count = 0;
+function mark(index){
+    var button = document.getElementsByTagName("button")[index];
+    button.innerText = flag? "X" : "O";
+    button.style.background = flag? "aqua":"yellow";
+    button.setAttribute("disable","true");
+    flag = !flag;
+
+  
+    count++;
+        if(count == 8){
+            alert("Game over !");
+            location.reload();
+        }
+        }
+</script>

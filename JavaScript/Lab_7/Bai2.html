@@ -1,0 +1,74 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script>
+      app = angular.module("b2", []);
+      app.controller("hienthi", xuly);
+      function xuly($scope) {
+        //code xử lý
+        $scope.tinh = function () {
+          var d = parseFloat($scope.dai);
+          var r = parseFloat($scope.rong);
+          $scope.cv = (d + r) * 2;
+          $scope.dt = d * r;
+        };
+      }
+    </script>
+    <style>
+      body {
+
+        padding-top: 60px;
+        padding-left: 400px;
+      }
+      .khung {
+        border: 1px solid black;
+        width: 500px;
+        height: 500px;
+        background-color: rgb(0, 204, 255);
+        padding-left: 90px;
+        padding-top: 50px;
+      }
+      .kq {
+        border: 1px solid black;
+        width: 190px;
+        height: 30px;
+        background-color: white;
+        padding-left: 10px;
+      }
+      button {
+        background-color: aqua;
+        height: 40px;
+      }
+    </style>
+  </head>
+
+  <body ng-app="b2">
+    <div ng-controller="hienthi">
+      <form class="khung">
+        <label>Chiều dài</label><br />
+        <input name="dai" ng-model="dai" /><br /><br />
+
+        <label>Chiều rộng</label><br />
+        <input name="rong" ng-model="rong" /><br /><br />
+
+        <label>Chu vi</label><br />
+        <div class="kq">{{cv}}</div>
+        <br />
+
+        <label>Diện tích</label><br />
+        <div class="kq">{{dt}}</div>
+        <br /><br />
+
+        <button ng-click="tinh()">Tính Toán </button>
+      </form>
+    </div>
+  </body>
+</html>

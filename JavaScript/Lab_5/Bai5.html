@@ -1,0 +1,143 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huỳnh Ngọc Long Nhật</title>
+    <style>
+        .container {
+            width: 700px;
+            margin: auto;
+            border: 0.5px solid black;
+            background: rgb(243, 98, 98);
+        }
+
+        .row {
+            display: flex;
+            line-height: 36px;
+            text-align: center;
+        }
+
+        .row>div {
+            background: rgb(179, 245, 199);
+            width: 25%;
+            border: 0.5px solid black;
+        }
+
+        header,footer {
+            font-weight: bold;
+            color: crimson;
+        }
+
+        button {
+            width: 100px;
+            height: 35px;
+        }
+
+        .head {
+            padding: 10px;
+        }
+
+        .head span {
+            float: right;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">TIỀN VÉ DU LỊCH HẠ LONG <span id="ngay">Hiện ngày</span></div>
+        <header class="row">
+            <div>Gia Đình</div>
+            <div>Số người lớn</div>
+            <div>Số trẻ em </div>
+            <div>Tiền</div>
+        </header>
+        <div class="row">
+            <div>Đào kho báu</div>
+            <div class="nl" contenteditable="true" onkeyup="tien(this)">11</div>
+            <div class="te" contenteditable="true" onkeyup="tien(this)">3</div>
+            <div class="tien">Số Tiền</div>
+        </div>
+        <div class="row">
+            <div>Đỗ Đạt Cao</div>
+            <div class="nl" contenteditable="true" onkeyup="tien(this)">22</div>
+            <div class="te" contenteditable="true" onkeyup="tien(this)">2</div>
+            <div class="tien">Số Tiền</div>
+        </div>
+        <div class="row">
+            <div>Mai anh Tới</div>
+            <div class="nl" contenteditable="true" onkeyup="tien(this)">33</div>
+            <div class="te" contenteditable="true" onkeyup="tien(this)">4</div>
+            <div class="tien">Số Tiền</div>
+        </div>
+        
+        <div class="row">
+            <div>Phạm kỷ Luật</div>
+            <div class="nl" contenteditable="true" onkeyup="tien(this)">44</div>
+            <div class="te" contenteditable="true" onkeyup="tien(this)">6</div>
+            <div class="tien">Số Tiền</div>
+        </div>
+
+        <div class="row">
+            <div>Mai anh Bảo</div>
+            <div class="nl" contenteditable="true" onkeyup="tien(this)">55</div>
+            <div class="te" contenteditable="true" onkeyup="tien(this)">7</div>
+            <div class="tien">Số Tiền</div>
+        </div>
+
+        <footer class="row"> 
+            <div>Tổng</div>
+            <div id="tongnl"></div>
+            <div id="tongte"></div>
+            <div id="tongtien"></div>
+        </footer>
+        <div class="row"><button onclick="tinhtien()">Tính</button><button onclick="anhien()">Ẩn Hiện</button></div>
+    </div>
+
+</body>
+</html>
+<script>
+    function tinhtien(){
+        var nf = new Intl.NumberFormat();
+        var nguoilon_arr = document.getElementsByClassName("nl");
+        var treem_arr = document.getElementsByClassName("te");
+        var sotien_arr = document.getElementsByClassName("tien");
+        var tongnguoilon=0, tongtreem=0, tongtien=0;
+        for (var i=0 ; i<nguoilon_arr.length; i++){
+            var songuoilon = nguoilon_arr[i].innerText;
+            var sotreem = treem_arr[i].innerText;
+            songuoilon = parseInt(songuoilon);
+            sotreem = parseInt(sotreem);
+
+            tongnguoilon += songuoilon;
+            tongtreem += sotreem;
+
+
+
+            t = songuoilon*1000000 + sotreem * 600000;
+            tongtien =+t;
+            sotien_arr[i].innerText = t;
+        }
+        document.getElementById("tongnl").innerText=tongnguoilon;
+        document.getElementById("tongte").innerText=tongtreem;
+        document.getElementById("tongtien").innerText=tongtien;
+        nf.format(Number);
+    }
+    function tien(obj){
+        var row = obj.parentNode;
+        so1n = row.children[1].innerText;
+        sote = row.children[2].innerText;
+        t = son1*1000000 + sote*600000;
+        row.children[3].innerText= t;
+    }
+    function anhien(){
+        var row_arr = document.getElementsByClassName("row");
+        for (var i=1 ; i<row_arr.length-1; i++){
+            if(row_arr[i].style.display=="none") row_arr[i].style.display="";
+            else row_arr[i].style.display="none";
+        }
+    }
+</script>

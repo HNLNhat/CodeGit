@@ -1,0 +1,137 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huỳnh Ngọc Long Nhật</title>
+</head>
+<style>
+  .container{
+        width: 600px;
+        margin: auto;
+        background: rgb(0, 174, 255);
+        padding: 20px;
+        font-size: 1.2em;
+        text-align: center;
+        border-radius: 20px;
+        }
+        table{
+            width: 600px;
+            border-collapse:collapse;
+        }
+        th, td{
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+        }
+        caption{
+            font-weight: 600px;
+            font-size: 1.2em;
+        }
+        h3{
+            text-align: center;
+        }
+        button{
+            width: 60px;
+            height: 25px;
+        }
+</style>
+
+<body>
+    <div class="container">
+        <table>
+            <caption>CÁC SẢN PHẨM HOA</caption>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="chonhet"></th>
+                    <th>Tên sản phẩm hoa</th>
+                    <th>Giá</th>
+                    <th>Mua</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="chon" checked onchange="daott(this)" ></td>
+                    <td>Hạnh phúc trọn vẹn</td>
+                    <td>900000</td>
+                    <td><button onclick="them(this)">Chọn</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
+                    <td>Con Đường Thành Công</td>
+                    <td>1750000</td>
+                    <td><button onclick="them(this)">Chọn</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>TRANG 3
+                    <td>Phú Quý</td>
+                    <td>1300000</td>
+                    <td><button onclick="them(this)">Chọn</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
+                    <td>Vững Bước</td>
+                    <td>1150000</td>
+                    <td><button onclick="them(this)">Chọn</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="chon" checked onchange="daott(this)"></td>
+                    <td>Một Cõi Đi Về</td>
+                    <td>950000</td>
+                    <td><button onclick="them(this)">Chọn</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr style="margin:20px 0" />
+        <table id="cart">
+            <caption>GIỎ HÀNG CỦA BẠN</caption>
+        </table>
+        
+        <h3 id="tongtien"> Tổng Số Tiền : <span id="tong">0</span></h3>
+      </div>
+
+</body>
+
+</html>
+<script>
+    function them(button) {
+      var row = button.parentElement.parentElement.cloneNode(true);
+      var btnXoa = row.getElementsByTagName("button")[0];
+      btnXoa.innerText = "Xóa";
+      btnXoa.setAttribute("onclick", "xoa(this)");
+      document.getElementById("cart").appendChild(row);
+      tinhtong();
+      document.getElementById("cart").style.display = "";
+      document.getElementById("tongtien").style.display = "";
+    }
+  
+    function xoa(button) {
+      var row = button.parentElement.parentElement;
+      document.getElementById("cart").removeChild(row);
+      tinhtong();
+    }
+  
+    function tinhtong() {
+      var cart = document.getElementById("cart");
+      var rows = cart.getElementsByTagName("tr");
+      var tong = 0;
+      for (var i = 0; i < rows.length; i++) {
+        var price = rows[i].children[2].innerText;
+        price = parseInt(price);
+        tong += price;
+      }
+      document.getElementById("tong").innerText = tong;
+    }
+  
+    function daott(obj) {
+      var row = obj.parentElement.parentElement;
+      var btn = row.getElementsByTagName("button")[0];
+      btn.disabled = !btn.disabled;
+    }
+  </script>
+  <script>
+    document.getElementById("cart").style.display = "none";
+    document.getElementById("tongtien").style.display = "none";
+  </script>
+  

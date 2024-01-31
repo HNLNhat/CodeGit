@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"> </script>
+</head>
+<body ng-app = "b1">
+    <div class="container" ng-controller="hienthi">
+
+        <div class="caption">
+        <h4>Thông Tin Sinh Viên</h4>
+        <img src="nhat.jpg" alt="">
+    </div>
+    <ul>
+        <li><span>Họ Tên : </span> {{hoten}} </li>
+        <li><span>Ngày Sinh : </span> {{ngaysinh}} </li>
+        <li><span>Giới Tính : </span> {{gender}} </li>
+        <li><span>Điểm : </span> {{mark}} </li>
+    </ul>
+</div>
+</body>
+<script>
+    app= angular.module("b1",[]);
+    app.controller("hienthi",xuly);
+    function xuly($scope){
+        $scope.hoten = "Huỳnh Ngọc Long Nhật";
+        $scope.ngaysinh = "10/06/2003";
+        $scope.gender = "Nam";
+        $scope.photo = "nhat.jpg";
+        $scope.mark = 8.0;
+        }
+</script>
+</html>

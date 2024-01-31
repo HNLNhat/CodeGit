@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var sv = new Object();
+        sv.hoTen = prompt("Nhập họ tên : ");
+        sv.diem = prompt("Nhập điểm : ");
+        sv.hienthi = function(){
+            if(this.diem >=5) this.hocluc = "Đậu"; else this.hocluc = "Rớt";
+            document.getElementById("kq").innerHTML="<p>Họ và tên: " + this.hoTen + "</p>";
+            document.getElementById("kq").innerHTML+="<p>Điểm TB: " + this.diem + "</p>";
+            document.getElementById("kq").innerHTML+="<p>Học Lực: " + this.hocluc + "</p>";
+        }
+    </script>
+
+</head>
+<body>
+    <h2>THÔNG TIN SINH VIÊN</h2>
+    <div id="kq">
+        <button onclick="sv.hienthi();">Hiển Thị</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huỳnh Ngọc Long Nhật</title>
+    <link rel="stylesheet" href="Dangki.css">
+</head>
+<body>
+    <script language="javascript" src="/js/kiemtra.js"></script>
+    <form action="" method="POST" onsubmit="return validate()">
+    <div class="register">
+        <div class="dangki">
+    <h1>Đăng ký</h1>
+    </div>
+    <hr>
+    <label for="username"><b>Tên đăng nhập</b></label>
+    <input type="text" placeholder="Họ và tên" name="username" id="username">
+    <label for="password"><b>Mật khẩu</b></label>
+    <input type="password" placeholder="******" name="password" id="password">
+    <label for="password-repeat"><b>Nhập lại mật khẩu</b></label>
+    <input type="password" placeholder="******" name="password-repeat" id="password-repeat">
+    
+    <fieldset >
+        <legend>Giới tính</legend>  
+        <label><input type="radio" name="gioitinh" id="gt"> Nam</label> 
+        <label><input type="radio" name="gioitinh" id="gt"> Nữ</label> 
+    </fieldset>
+    <fieldset>
+        <legend>Sở thích: </legend>
+        <label><input type="checkbox" name="sothich" id="st">Thể thao</label>
+        <label><input type="checkbox" name="sothich" id="st">Du lịch</label>
+        <label><input type="checkbox" name="sothich" id="st">Âm nhạc</label>
+        <label><input type="checkbox" name="sothich" id="st">Ẩm thực</label>
+        <label><input type="checkbox" name="sothich" id="st">Khác</label>
+    </fieldset> 
+    
+        Quốc tịch:<br>
+        <select input type="text" class="form-control">
+            <option >Việt</option>
+            <option>Mỹ</option>
+            <option >Anh</option>
+            <option >Nga</option>
+            <option >Pháp</option>
+        </select><br>
+    
+       Ghi chú:<br>
+    <textarea cols="60" rows="10" input type="text" class="form-control"></textarea>
+    <hr>
+    <button type="submit" class="submit">Đăng ký</button>
+    </div>
+    <div class="register login">
+    <p>Bạn đã có tài khoản rồi? <a href="#">Đăng nhập</a>.</p>
+   
+    </div>
+    </form>
+    </body>
+    </html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            width: 600px;
+            margin: 100px auto;
+            border: 1px solid blue;
+            box-shadow: 2px 2px 1px darkcyan;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transform: rotate(-10deg);
+        }
+        label{
+            width: 120px;
+            display: inline-block;
+        }
+        p, h2{
+            margin-left: 15px;
+        }
+            input[id], select{
+                padding: 8px;
+                width: 420px;
+                background-color: salmon;
+                border: none;
+            }
+        button{
+            width: 140px;
+            height: 40px;
+            border: none;
+            background-color: bisque;
+        }
+        h1{
+            text-align: center;
+            color:aqua;
+            background-color: chocolate;
+        }
+    </style>
+    <script>
+        function hienthi(v){
+            vc = document.getElementById("vc");
+            vc.style.display = (v==true)?"" : "none";
+        }
+        function kiemtra(){
+            thanhcong = true;
+            thongbao = "";
+            //code kiểm tra tên sp
+            var sp = document.getElementById("tensp");
+            if(sp.value.length == 0){
+                thongbao += "Vui lòng nhập tên sản phẩm<br>";
+                thanhcong=false;
+            }
+            //kiểm tra giá
+            var gia = document.getElementById("gia");
+            if(gia.value == ""){
+                thongbao += "Bạn chưa nhập giá<br>";
+                thanhcong=false;
+            }
+            if(isNaN(gia.value) == true ){
+                thongbao += "Bạn cần nhập giá là số nhé <br>";
+                thanhcong=false;
+            }
+            if(parseInt(gia.value) <= 0 ){
+                thongbao += "Bạn phải nhập giá là số nguyên <br>";
+                thanhcong=false;
+            }
+            //kiểm tra loại sản phẩm
+            var loai = document.getElementById("loai");
+            if(loai.value==""){
+                thongbao += "Chọn 1 loại sản phẩm đi <br>";
+                thanhcong=false;
+            }
+            //kiểm tra nơi nhận hàng
+            var radios = document.getElementsByName("diachi");
+            if(radios[0].checked == false && radios[1].checked == false){
+                thongbao = "Vui lòng chọn nơi giao hàng";
+                thanhcong = false;
+            }
+            if (thongbao=="") thongbao="Nhập đúng dữ liệu";
+            document.getElementById("kq").innerHTML=thongbao;
+            return thanhcong;
+        }
+    </script>
+</head>
+<body>
+<form>
+    <h1>Đặt hàng</h1>
+    <p> <label>Sản phẩm</label> <input id="tensp" placeholder="Nhập tên sản phẩm"></p>
+    <p> <label>Loại</label>
+        <select id="loai">
+            <option value="">Chọn loại sản phẩm</option>
+            <option value="DT">Điện thoại</option>
+            <option value="MT">Máy tính</option>
+        </select>
+    </p>
+    <p> <label>Đơn giá</label> <input id="gia" placeholder="Nhập đơn giá"></p>
+    <p> <label>Nơi nhận hàng</label>
+        <input type="radio" name="diachi" onclick="hienthi(false)">Nội thành
+        <input type="radio" name="diachi" onclick="hienthi(true)">Ngoại thành
+    </p> 
+    <p id="vc"><label>Phí vận chuyển</label> <input id="phi_vc" value="100000"></p>
+    <p> <label></label> <button type="button" onclick = "return kiemtra()">Đặt mua</button></p>
+    <hr>
+    <div id="kq"></div>
+</form>    
+</body>
+</html>
